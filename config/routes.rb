@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/docs/index', to: 'docs#index'
+  
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :create, :show, :update, :destroy]
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
         resources :microposts, only: [:index]
       end
     end
-    
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
