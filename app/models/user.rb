@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_secure_password
   before_create :generate_authentication_token
 
   def generate_authentication_token
@@ -12,5 +13,5 @@ class User < ActiveRecord::Base
     generate_authentication_token
     save
   end
-  
+
 end
