@@ -5,6 +5,9 @@ Rails.application.routes.draw do
       # 原文有 microposts, 我们现在把它注释掉
       # resources :microposts, only: [:index, :create, :show, :update, :destroy]
       resources :sessions, only: [:create]
+      scope path: '/user/:user_id' do
+        resources :microposts, only: [:index]
+      end
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
