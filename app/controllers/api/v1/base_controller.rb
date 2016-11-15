@@ -20,7 +20,6 @@ class Api::V1::BaseController < ApplicationController
 
   def authenticate_user!
     token, options = ActionController::HttpAuthentication::Token.token_and_options(request)
-
     user_email = options.blank?? nil : options[:email]
     user = user_email && User.find_by(email: user_email)
 
@@ -30,5 +29,9 @@ class Api::V1::BaseController < ApplicationController
       return unauthenticated!
     end
   end
-  
+
+  def unauthenticated!
+    api_error(status: 401)
+  end
+
 end
