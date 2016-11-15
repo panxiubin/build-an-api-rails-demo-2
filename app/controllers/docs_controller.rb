@@ -1,4 +1,5 @@
 class DocsController < ApplicationController
+
   USER_NAME, PASSWORD = 'doc_reader', '123123'
 
   before_filter :basic_authenticate
@@ -15,5 +16,5 @@ class DocsController < ApplicationController
       user_name == USER_NAME && password == PASSWORD
     end
   end
-  
+
 end
