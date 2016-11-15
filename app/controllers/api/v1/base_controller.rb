@@ -11,4 +11,6 @@ class Api::V1::BaseController < ApplicationController
   def destroy_session
     request.session_options[:skip] = true
   end
+
+  attr_accessor :current_user
 end
