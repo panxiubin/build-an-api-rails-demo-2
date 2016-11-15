@@ -1,7 +1,7 @@
 class Api::V1::BaseController < ApplicationController
 
   include Pundit
-  
+
   # disable the CSRF token
   protect_from_forgery with: :null_session
 
@@ -35,6 +35,12 @@ class Api::V1::BaseController < ApplicationController
 
   def unauthenticated!
     api_error(status: 401)
+  end
+
+  rescue_from Pundit::NotAuthorizedError, with: :deny_access
+
+  def deny_access
+    api_error(status: 403)
   end
 
 end
