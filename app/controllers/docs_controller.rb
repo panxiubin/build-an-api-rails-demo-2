@@ -2,7 +2,7 @@ class DocsController < ApplicationController
 
   USER_NAME, PASSWORD = 'doc_reader', '123123'
 
-  before_filter :basic_authenticate
+  # before_filter :basic_authenticate
 
   layout false
 
